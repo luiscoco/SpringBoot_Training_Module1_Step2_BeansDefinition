@@ -58,11 +58,11 @@ public class CSVDataLoader {
 }
 ```
 
-Note that @Autowired is optional for constructor injection in Spring 4.3+.
+Note that **@Autowired** is optional for constructor injection in Spring 4.3+.
 
 **Update Main Application to Use Spring Context**
 
-Modify FlightsApplication to initialize the Spring ApplicationContext and retrieve beans:
+Modify **FlightsApplication** to initialize the Spring **ApplicationContext** and retrieve beans:
 
 ```java
 import org.springframework.context.ApplicationContext;
@@ -84,6 +84,14 @@ public class FlightsApplication {
     }
 }
 ```
+
+**@Configuration**: Marks this class as a source of Spring bean definitions; methods (or component scans) here contribute beans to the application context.
+
+**@EnableAutoConfiguration**: Tells Spring Boot to auto-configure beans based on the classpath and environment (e.g., loggers, data conversion), so you don’t have to define common infrastructure manually.
+
+**@ComponentScan(basePackages = "com.luxoft.flights")**: Instructs Spring to search the given package (and subpackages) for classes annotated with stereotypes (@Component, @Service, @Repository, @Controller, etc.) and register them as beans.
+
+<img width="1348" height="974" alt="image" src="https://github.com/user-attachments/assets/eb12eaf6-219e-478f-a5c6-5cc5c294e843" />
 
 ### Benefits of Using Dependency Injection
 
